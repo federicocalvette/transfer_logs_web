@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>Web Transfer Logs</title>
+
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="icon">
+            <img src="{{ url_for('static', filename='img/Prometeo-blanco.png')}}" width=150/>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">APIs</a></li>
+                <li><a href="#">DOCUMENTATION</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="content">
+        {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+    </div>
+    
+    <div class="content">
+        <div class="main">
+            <div class="left">
+                <form method="post">
+                    <h2 for="title">Consulta tus pagos</h2><br>
+                    <!-- <label for="date_start">Fecha inicio:</label><br> -->
+                    <input class="date" type="text" id="date_start" name="date_start" placeholder=" DD/MM/YYYY de inicio"><br><br>
+                    <!-- <label for="date_end">Fecha fin:</label><br> -->
+                    <input class="date" type="text" id="date_end" name="date_end" placeholder=" DD/MM/YYYY de fin"><br><br>
+                    <input class="submit" type="submit" value="Consultar">
+                </form>
+            </div>
+            <div class="right">
+                <img src="{{ url_for('static', filename='img/Pagos.png')}}" alt="Pagos cuenta a cuenta" title="Pagos cuenta a cuenta" width="400"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content_table"> 
+        <h2>Tabla de pagos A2A </h2>
+        <h4>{{dates}}</h4>
+        <br>
+        <br>
+        <br>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Request ID</th>
+                <th scope="col">Origin Account</th>
+                <th scope="col">Destination Account</th>
+                <th scope="col">Destination Name</th>
+                <th scope="col">Destination Institution</th>
+                <th scope="col">Currency</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Concept</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Status</th>
+                <th scope="col">Operation ID</th>         
+                </tr>
+            </thead>
+            <tbody>
+                {% for pago in lista_pagos %}
+                    <tr>
+                        <td>{{ pago.request_id }}</th>
+                        <td>{{ pago.origin_account }}</td>
+                        <td>{{ pago.destination_account }}</td>
+                        <td>{{ pago.destination_name }}</td>
+                        <td>{{ pago.destination_institution_name }}</td>
+                        <td>{{ pago.currency }}</td>
+                        <td>{{ pago.amount }}</td>
+                        <td>{{ pago.concept }}</td>
+                        <td>{{ pago.created_at }}</td>
+                        <td>{{ pago.status }}</td>
+                        <td>{{ pago.operation_id }}</td>         
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
