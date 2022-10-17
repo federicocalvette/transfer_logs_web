@@ -1,7 +1,9 @@
+@import url('http://fonts.cdnfonts.com/css/dm-sans');
+
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'DM Sans', sans-serif;
 }
 
 .content{
@@ -14,14 +16,15 @@
 
 .left{
     width: 65%;
-    height: 300px; 
+    height: 450px; 
     float: left;
     display: grid; 
+
 }
 
 .right{
     width: 30%;
-    height: 300px; 
+    height: 450px; 
     float:right; 
     padding-right: 5%;
     padding-top: 15px;
@@ -30,7 +33,7 @@
 }
 .content_table{
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
     display: grid; 
     padding-top: 5em;
 }
@@ -68,7 +71,7 @@ th, td {
 }
 
 th{
-    background: #E6210A;
+    background: #495863;
     color: white;
     font-size: 15px;
     padding: 10px;
@@ -84,6 +87,7 @@ form h2{
 }
 label {
     font-size: 20px;
+    color: #495863;
 }
 input{
     width: 40%;
@@ -142,3 +146,4 @@ ul li a{
 ul li a:hover{
     color: #ec1613;
 }
+

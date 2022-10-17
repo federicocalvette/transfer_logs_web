@@ -38,9 +38,12 @@
             <div class="left">
                 <form method="post">
                     <h2 for="title">Consulta tus pagos</h2><br>
-                    <input class="date" type="text" id="date_start" name="date_start" placeholder=" DD/MM/YYYY de inicio"><br><br>
-                    <input class="date" type="text" id="date_end" name="date_end" placeholder=" DD/MM/YYYY de fin"><br><br>
-                    <input class="date" type="password" id="apikey" name="apikey" placeholder=" Tu API Key"><br><br>
+                    <label for="">Desde: </label><br>
+                    <input class="date" type="text" id="date_start" name="date_start" placeholder=" DD/MM/YYYY"><br><br>
+                    <label for="">Hasta: </label><br>
+                    <input class="date" type="text" id="date_end" name="date_end" placeholder=" DD/MM/YYYY"><br><br>
+                    <label for="">Tu API Key: </label><br>
+                    <input class="date" type="password" id="apikey" name="apikey" ><br><br>
                     <input class="submit" type="submit" value="Consultar">
                 </form>
             </div>
@@ -51,6 +54,7 @@
     </div>
     
     <div class="content_table"> 
+        <br>
         <h2>Tabla de pagos A2A </h2>
         <h4>{{dates}}</h4>
         <br>
