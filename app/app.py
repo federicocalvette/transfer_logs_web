@@ -11,13 +11,17 @@ def home():
     if request.method == 'POST':
         date_start = request.form['date_start']
         date_end = request.form['date_end']
+        apikey = request.form['apikey']
+        print(apikey)
 
         if not date_start:
             flash('Date start is required!')
         elif not date_end:
             flash('Date end is required!')
+        elif not apikey:
+            flash('API Key is required!')
         else:
-            json_base = prometeo_request.get_transfer_logs(date_start, date_end)
+            json_base = prometeo_request.get_transfer_logs(date_start, date_end, apikey)
             lista_pagos = json_base.get('result')
 
             return render_template('index.html', lista_pagos=lista_pagos, dates=f'{date_start} to {date_end}')

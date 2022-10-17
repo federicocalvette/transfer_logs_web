@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png')}}">
     <title>Web Transfer Logs</title>
 
 </head>
@@ -37,10 +38,9 @@
             <div class="left">
                 <form method="post">
                     <h2 for="title">Consulta tus pagos</h2><br>
-                    <!-- <label for="date_start">Fecha inicio:</label><br> -->
                     <input class="date" type="text" id="date_start" name="date_start" placeholder=" DD/MM/YYYY de inicio"><br><br>
-                    <!-- <label for="date_end">Fecha fin:</label><br> -->
                     <input class="date" type="text" id="date_end" name="date_end" placeholder=" DD/MM/YYYY de fin"><br><br>
+                    <input class="date" type="password" id="apikey" name="apikey" placeholder=" Tu API Key"><br><br>
                     <input class="submit" type="submit" value="Consultar">
                 </form>
             </div>
