@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request, url_for, flash, redirect
+from crypt import methods
+from flask import Flask, render_template, request, url_for, flash, redirect, send_from_directory
 import prometeo_request
 import settings
+import csv_generator
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = settings.SECRET_KEY
@@ -23,7 +25,12 @@ def home():
         else:
             json_base = prometeo_request.get_transfer_logs(date_start, date_end, apikey)
             lista_pagos = json_base.get('result')
-
-            return render_template('index.html', lista_pagos=lista_pagos, dates=f'{date_start} to {date_end}')
+            csv_file_name = csv_generator.get_csv(lista_pagos)
+            return render_template('index.html', lista_pagos=lista_pagos, dates=f'{date_start} to {date_end}', csv_name = csv_file_name)
 
     return render_template('index.html')
+
+@app.route("/download/<filename>", methods=['GET'])
+def download_file(filename):
+    directory = './download_file/'
+    return send_from_directory(directory, filename)

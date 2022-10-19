@@ -58,29 +58,29 @@
         <h2>Tabla de pagos A2A </h2>
         <h4>{{dates}}</h4>
         <br>
-        <br>
+        <a class="download" href="{{ url_for('download_file', filename=csv_name)}}">Descargar CSV</a>
         <br>
         <br>
         <table class="table">
             <thead>
                 <tr>
-                <th scope="col">Request ID</th>
-                <th scope="col">C. ORIGEN</th>
-                <th scope="col">C. RECAUDADORA</th>
-                <th scope="col">N. DESTINATARIO</th>
-                <th scope="col">INST. DESTINO</th>
-                <th scope="col">MONEDA</th>
-                <th scope="col">MONTO</th>
-                <th scope="col">CONCEPTO</th>
-                <th scope="col">FECHA</th>
-                <th scope="col">ESTADO</th>
-                <th scope="col">NRO OPERACION</th>         
+                    <th scope="col">Request ID</th>
+                    <th scope="col">C. ORIGEN</th>
+                    <th scope="col">C. RECAUDADORA</th>
+                    <th scope="col">N. DESTINATARIO</th>
+                    <th scope="col">INST. DESTINO</th>
+                    <th scope="col">MONEDA</th>
+                    <th scope="col">MONTO</th>
+                    <th scope="col">CONCEPTO</th>
+                    <th scope="col">FECHA</th>
+                    <th scope="col">ESTADO</th>
+                    <th scope="col">NRO OPERACION</th>         
                 </tr>
             </thead>
             <tbody>
                 {% for pago in lista_pagos %}
-                    <tr>
-                        <td>{{ pago.request_id }}</th>
+                <tr>
+                    <td>{{ pago.request_id }}</th>
                         <td>{{ pago.origin_account }}</td>
                         <td>{{ pago.destination_account }}</td>
                         <td>{{ pago.destination_name }}</td>
@@ -92,10 +92,10 @@
                         <td>{{ pago.status }}</td>
                         <td>{{ pago.operation_id }}</td>         
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    
-</body>
-</html>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </body>
+    </html>
