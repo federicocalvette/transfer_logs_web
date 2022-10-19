@@ -14,7 +14,6 @@ def home():
         date_start = request.form['date_start']
         date_end = request.form['date_end']
         apikey = request.form['apikey']
-        print(apikey)
 
         if not date_start:
             flash('Date start is required!')
