@@ -81,6 +81,8 @@ target/
 # IPython
 profile_default/
 ipython_config.py
+settings.py
+app/download_file/
 app/settings.py
 
 # pyenv

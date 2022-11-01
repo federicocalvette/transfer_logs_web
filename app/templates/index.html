@@ -64,11 +64,12 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Request ID</th>
+                    <th scope="col">PROMETEO ID</th>
                     <th scope="col">C. ORIGEN</th>
+                    <th scope="col">BANCO ORIGEN</th>
                     <th scope="col">C. RECAUDADORA</th>
+                    <th scope="col">BANCO DESTINO</th>
                     <th scope="col">N. DESTINATARIO</th>
-                    <th scope="col">INST. DESTINO</th>
                     <th scope="col">MONEDA</th>
                     <th scope="col">MONTO</th>
                     <th scope="col">CONCEPTO</th>
@@ -82,9 +83,10 @@
                 <tr>
                     <td>{{ pago.request_id }}</th>
                         <td>{{ pago.origin_account }}</td>
+                        <td>{{ pago.provider_origin }}</td>
                         <td>{{ pago.destination_account }}</td>
+                        <td>{{ pago.destination_institution.name }}</td>
                         <td>{{ pago.destination_name }}</td>
-                        <td>{{ pago.destination_institution_name }}</td>
                         <td>{{ pago.currency }}</td>
                         <td>{{ pago.amount }}</td>
                         <td>{{ pago.concept }}</td>

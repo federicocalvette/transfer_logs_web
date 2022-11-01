@@ -12,4 +12,6 @@ def get_transfer_logs(date_start, date_end, apikey):
 
     response = requests.request("GET", URL, headers=headers)
 
+    if settings.DEBUG: print(response.json())
+
     return response.json()
