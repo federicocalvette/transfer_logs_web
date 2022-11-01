@@ -2,6 +2,9 @@
 
 ### Run
 ```
+mv app/settings_example.py app/settings.py 
+```
+```
 source env/bin/activate
 ```
 ```
